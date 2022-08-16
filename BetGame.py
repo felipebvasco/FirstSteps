@@ -14,7 +14,7 @@ import random
 
 
 
-saldo = float(input('Coloque o Saldo Disponível para começar as aspostas: '))
+saldo = float(input('Coloque o Saldo Disponível para começar as apostas: '))
 option = int(input('''Digite qual opção você deseja utilizar:
 1 - Apostar em Número específico (increase balance value by 83,4%)
 2 - Apostar no Sistema High-Low (increase balance value by 20%)
@@ -60,7 +60,9 @@ def game2():
             print('''Parabéns, O número sorteado foi {} e estava na sua escolha (low)
 Saldo atual: {}'''.format(numerodado2, saldopremio1))
         if escolhaplayer1 != numerodado2:
-            print('Você errou, que pena!')
+            saldoperdido1 = saldo - saldoaposta
+            print('''Você errou, que pena!
+Saldo atual: {}'''.format(saldoperdido1))
     if escolhaplayer1 == 2:
         escolhatipo2 = high = [4, 5, 6]
         numerodado2 = random.randint(1, 6)
@@ -69,10 +71,13 @@ Saldo atual: {}'''.format(numerodado2, saldopremio1))
             print('''Parabéns, O número sorteado foi {} e estava na sua escolha (high)
 Saldo atual: {}'''.format(numerodado2, saldopremio1))
         if numerodado2 not in high:
-            print('Você errou, que pena!')
+            saldoperdido2 = saldo - saldoaposta
+            print('''Você errou, que pena!
+Saldo atual: {}'''.format(saldoperdido2))
    
 if option == 1:
     game1()
+    #saldo -= saldoaposta
     continuar = int(input('''
 Deseja continuar Jogando?
 1 - Sim
